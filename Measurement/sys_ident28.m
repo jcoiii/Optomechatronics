@@ -18,8 +18,9 @@ end_index = zero_crossings(14);
 inp_lvdt_trimmed = inp_lvdt(start_index:end_index);
 out_lvdt_trimmed = out_lvdt(start_index:end_index);
 time_trimmed = time(start_index:end_index);
-plot(time_trimmed, out_lvdt_trimmed)
+plot(time_trimmed, out_lvdt_trimmed, time_trimmed, inp_lvdt_trimmed)
 
 meas = iddata(out_lvdt_trimmed', inp_lvdt_trimmed', Ts);
 
 sys = tfest(meas,2,0);
+sys
