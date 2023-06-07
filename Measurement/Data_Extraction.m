@@ -18,6 +18,7 @@ for i = 28:39
     out_lvdt{i-27} = data.(varname).Y(2).Data;
     inp_ampf{i-27} = data.(varname).Y(3).Data;
     [n,p] = size(out_lvdt{i-27});
+    
     if p < 15000
         zero_crossings = find(diff(sign(out_lvdt{i-27})) ~= 0);
         start_index= zero_crossings(1);
@@ -41,13 +42,14 @@ for i = 28:39
 end
 
 Ts = 0.001;
-allData = [];
-for i = 1:numel(time_trimmed)
-    data = iddata(out_lvdt_trimmed{i},  inp_lvdt_trimmed{i}, Ts); 
-    allData = [allData; data]; 
-end
-
-opt = tfestOptions('Ts', Ts);
-sys = tfest(allData, 2, 2, opt); 
+% allData = iddata([],[],Ts); % initialize allData as an empty iddata object
+% 
+% for i = 1:numel(time_trimmed)
+%     data = iddata(out_lvdt_trimmed{i}',  inp_lvdt_trimmed{i}', Ts); 
+%     allData = merge(allData, data); 
+% end
+% 
+% opt = tfestOptions('Ts', Ts);
+% sys = tfest(allData, 2, 2, opt); 
 
 % start validation here
