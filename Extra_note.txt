@@ -1,0 +1,26 @@
+tf2
+tf5
+tf6 ~ tf7 ~tf8 
+tf9
+tf10
+tf11
+tf12
+
+NOT STABLE
+tf3
+tf4
+
+bad fit
+tf1
+tf2
+
+might be good
+sine 
+tf9
+tf10
+tf11
+tf12
+
+Almost good fit (gain needed)
+tf11
+tf8
