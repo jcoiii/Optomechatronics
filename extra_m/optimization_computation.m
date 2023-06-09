@@ -65,9 +65,9 @@ U_optimal = fmincon(@(U) costfunction_N(U,initial_condition,10),zeros(10,1),[],[
 % calculated U_optimal. Note that the dimension of input_star is the same
 % as the dimension of the column of B, the dimension of lambda_star and
 % x_star will be the same as the dimension of the state x.
-
+clear; clc;
 %xf = 5;
-xf = [8;0];
+xf = [5;0];
 T = 5;
 %x0 = 2;
 x0 = [2;0];
@@ -80,8 +80,8 @@ U_optimal = fmincon(@(U) costfunction_terminalcondition(U,x0,xf,T),zeros(T+sizex
 % Testing the U_optimal from the line above
 
 %A = 2; B = 1; Q = 1; P = 0.5; R = 0.5;
-A = [0 1;0.4 0.5];
-B = [0;1];
+A = [0 -0.9756;1 -1.9756];
+B = [0.01692;-0.01881];
 
 clear x;
 u = U_optimal(1:T);

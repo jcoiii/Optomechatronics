@@ -1,3 +1,3 @@
 clear; clc;
-load('combined_data.mat');
-ident
+load('new_tf.mat');
+step(tf12)

@@ -41,8 +41,8 @@ end;
 
 %A = 2; B = 1; 
 Q = 1; P = 0.5; R = 0.5;
-A = [0 1;0.4 0.5];
-B = [0;1];
+A = [0 -0.9756;1 -1.9756];
+B = [0.01692;-0.01881];
 
 % Recall from the Pontryagin minimum principle that we need to define
 % Hamiltonian function. In the following, we will recall few of these basic
