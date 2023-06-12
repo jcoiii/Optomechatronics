@@ -1,4 +1,4 @@
-function output = costfunction_terminalcondition(input,x0,xf,T)
+function output = costfunction_terminalcondition(input,x0,Q,R,xf,T)
 
 % Here we will extract three different important variable from the
 % optimization variable "input". In the "input" variable, it contains the
@@ -40,7 +40,7 @@ end;
 %initial state x(1) = x0;
 
 %A = 2; B = 1; 
-Q = 1; P = 0.5; R = 0.5;
+% A = 0.9924; B = -0.02192;
 A = [0 -0.9756;1 -1.9756];
 B = [0.01692;-0.01881];
 

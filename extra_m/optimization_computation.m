@@ -67,19 +67,20 @@ U_optimal = fmincon(@(U) costfunction_N(U,initial_condition,10),zeros(10,1),[],[
 % x_star will be the same as the dimension of the state x.
 clear; clc;
 %xf = 5;
-xf = [5;0];
-T = 5;
+xf = [0.1, 0];
+T = 10;
 %x0 = 2;
-x0 = [2;0];
+x0 = [0, 0];
 sizex = size(x0,1);
-
+Q = 1;
+R = 0.5;
 options = optimoptions('fmincon','Algorithm','interior-point');
-U_optimal = fmincon(@(U) costfunction_terminalcondition(U,x0,xf,T),zeros(T+sizex*T*2,1),[],[],[],[],[],[],[],options);
+U_optimal = fmincon(@(U) costfunction_terminalcondition(U,x0,Q,R,xf,T),zeros(T+sizex*T*2,1),[],[],[],[],-0.25*ones(T+sizex*T*2,1),0.25*ones(T+sizex*T*2,1),[],options);
 
 %%
 % Testing the U_optimal from the line above
 
-%A = 2; B = 1; Q = 1; P = 0.5; R = 0.5;
+% A = 0.9924; B = -0.02192;
 A = [0 -0.9756;1 -1.9756];
 B = [0.01692;-0.01881];
 
@@ -90,8 +91,8 @@ x = zeros(sizex,T);
 x(:,1) = x0;
 for k = 1:T-1
     x(:,k+1) = A*x(:,k) + B*u(k);
-end;
-
+end
+x
 
 %% MPC for the scalar example
 x = 10;u=0;
