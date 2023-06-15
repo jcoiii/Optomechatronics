@@ -39,9 +39,9 @@ end;
 %Terminal state x(T) = xf;
 %initial state x(1) = x0;
 
-A = 0.9709; B = -0.07888;
-% A = [0 -0.9756;1 -1.9756];
-% B = [0.01692;-0.01881];
+% A = 0.9709; B = -0.07888;
+A = [0 -0.9604; 1 1.959];
+B = [0.006379; 0.002416];
 
 % Recall from the Pontryagin minimum principle that we need to define
 % Hamiltonian function. In the following, we will recall few of these basic
