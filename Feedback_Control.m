@@ -49,9 +49,9 @@ eq1 = -a2*x2s + b2*us == x1s;
 eq2 = x1s -a1*x2s + b1*us == x2s;
 sol = solve([eq1, eq2], [us, x1s]);
 x1s_sol = double(sol.x1s);
-desired_state = [x1s_sol; x2s]; % change to xs 1st order system, xs=0.15
+desired_state = [x1s_sol; x2s]; % change to xs 1st order approx, xs=0.15
 
-%% Control Design
+%% Control Design - Discrete time
 Kp = 5;  
 Ki = 0.01;
 Kd = 20;
